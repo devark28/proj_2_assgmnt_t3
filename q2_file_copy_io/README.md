@@ -24,8 +24,8 @@ cmp testfile.bin copy_syscall_out.bin
 cmp testfile.bin copy_stdio_out.bin
 ```
 
-150 MB satisfies the "at least 100 MB" requirement. `cmp` confirms both
-copies are byte-identical to the source.
+150 MB clears the 100 MB minimum. `cmp` confirms both copies are
+byte-identical to the source.
 
 ## Why the buffer is 1024 bytes on both sides
 

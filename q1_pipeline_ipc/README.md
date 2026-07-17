@@ -77,8 +77,8 @@ syscall, it is a libc loop around the `execve()` syscall.
 **5. Output file creation.** The consumer's `openat(AT_FDCWD,
 "outputs/pipeline_output.txt", O_WRONLY|O_CREAT|O_TRUNC, 0644)` happens
 after its `dup2()` calls but before its `execvp()` loop resolves, since
-the program sets up all its redirections first. This is the "capture
-output into a file" requirement: the file descriptor returned here gets
+the program sets up all its redirections first. This is what captures
+the output into a file: the file descriptor returned here gets
 `dup2()`'d onto the consumer's stdout, so everything `grep` prints goes
 straight to disk instead of the terminal.
 

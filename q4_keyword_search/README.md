@@ -38,8 +38,8 @@ The lock is held only long enough to read and increment one integer, the
 actual file reading and string search happen with no lock at all, since
 each thread works on its own `content` buffer. When `num_threads >=
 num_files` (the "maximum threads" case, one thread per file), each thread
-claims exactly one index before the queue empties, which is the literal
-"each thread processes one file" requirement satisfied directly. When
+claims exactly one index before the queue empties, so each thread really
+does process exactly one file. When
 `num_threads < num_files`, threads pull more than one file each,
 correctly and safely, off the same queue.
 
